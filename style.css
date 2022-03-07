@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#form1{
+    background-color: rgb(255, 173, 140);
+    border: 2px solid lightslategray;
+    height:100% ;
+    width: 70%;
+    
+}
+#btn{
+    border: 2px solid red;
+    height:40px ;
+    width: 120px ;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+#btn:hover{
+    background-color: tomato;
+}
+#sign_form{
+    border: 2px solid rgb(34, 87, 84);
+    background-color: lightskyblue;
+    padding: 10px;
+    height:270px ;
+    width: 720px ;
+}
+#sqlForm{
+    height: 300px ;
+    width: 500px ;
+    background-color: lightblue ;
+    padding: 20px;
+    margin: 40px;
+}
+
+hr{
+    border: 2px solid lightcoral;
+}
