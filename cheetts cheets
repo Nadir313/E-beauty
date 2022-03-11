@@ -1,0 +1,73 @@
+    <?php if($error != "") {       ?>
+        <div class="alert <?php echo $errorC ?>"> <?php  echo $error ?> </div>
+        <?php  } elseif($newClient !=""){    ;  ?>
+        <div class="alert <?php echo $created ; ?>"> 
+        <?php echo $newClient  ?>
+        </div>
+    <?php }; ?> 
+
+
+    /*
+    if(isset($_POST["submit"])  AND !empty($_POST["email"]) AND !empty($_POST["password2"]) AND !empty($_POST["phone"])){
+        $first_name = $_POST["first_name"] ;
+
+        $newname = filter_var($first_name,FILTER_VALIDATE_STRING) ;
+        //  $first_name = filter_var($first_name ,FILTER_SANITIZE_STRING) ;
+        $last_name = $_POST["last_name"] ;
+            // $lastname = filter_var($last_name , FILTER_SANITIZE_STRING) ;
+        $email = $_POST["email"] ;
+            // $email = filter_var($email , FILTER_SANITIZE_EMAIL) ;
+        $phone = $_POST["phone"] ;
+            // $phone = filter_var($phone , FILTER_SANITIZE_NUMBER_INT) ;
+        
+    }   */
+
+    /*  all validation nonsense 
+
+            //  echo "<hr>" ;
+    //  if(isset($_POST["submit"])){
+    //     if($_POST["password"] != $_POST["password2"] ){
+    //         echo "recheck password" ;
+    //     }else{
+    //         echo "passwords are matching" ;
+    //     }
+    //  }
+    //  echo "<hr>" ;
+    //  OR filter_has_var(INPUT_POST, "first_name" ) OR filter_has_var(INPUT_POST , "last_name") OR filter_has_var(INPUT_POST , "adresse") ;
+    //  echo "hi" ;
+
+       //  if ($_POST['password']!= $_POST['password2']){
+        //     echo("Oops! Password did not match! Try again. ");
+        // }
+        // $lpass = strlen($password) ;
+        //     if($lpass > 8 AND $lpass < 20 ) {
+        //         $goodpass = $lpass ;
+        //         echo $goodpass."is cool" ;
+        //         echo "<hr>" ;
+        //     }
+        echo "<hr>" ;
+
+        // if(preg_match('/^[A-Za-z0-9_-]*$/' , $name)){
+        //     echo "hello is valid ".$name ;
+        // }else{
+        //     echo $name." is not cool" ;
+        // } ;
+
+        // password within a giving length 
+
+    /// validating & Sanitizing email 
+        // $email2 = filter_var($email, FILTER_SANITIZE_EMAIL) ;
+        // if(filter_var($email2 ,FILTER_VALIDATE_EMAIL)){
+        //     echo $email2." is valid"."<hr>" ;
+        // }else{
+        //     echo $email." is not valid"."<hr>" ;
+        // }
+        echo "<hr>" ;
+     /// phone number validation 
+        // if (!preg_match ("/^[0-9]*$/", $phone) ){  
+        //     $ErrMsg = "Only numeric value is allowed.";  
+        //     echo $ErrMsg;  
+        // } else {  
+        //     echo $phone." is a valid phone number ";  
+        // }  
+    */

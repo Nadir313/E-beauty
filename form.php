@@ -1,51 +1,59 @@
 <?php include "navbar.php" ;
-    //  echo "<hr>" ;
-    //  if(isset($_POST["submit"])){
-    //     if($_POST["password"] != $_POST["password2"] ){
-    //         echo "recheck password" ;
-    //     }else{
-    //         echo "passwords are matching " ;
+    include "DBCon.php" ;
+
+    global $error ,  $errorC,  $newClient,  $created ;
+    // if($connection){
+    //     echo "connecton is cool ";
+    // }else{
+    //     echo "connection isn't cool ".mysqli_connect_error() ;
+    // }
+    // $pa = $_POST["password"] ;
+    // $paz = $_POST["password2"] ;
+    // echo "<hr>" ;
+    //     echo "$pa and $paz" ;
+    // echo "<hr>" ;
+    // die ;
+    // !empty($_POST["password"])  
+    //   if(isset($_POST["submit"])){
+    //     if(($_POST["password"] === $_POST["password2"])== true){
+    //         echo "Peace" ;
     //     }
-    //  }
-    //  echo "<hr>" ;
-    //  OR filter_has_var(INPUT_POST, "first_name" ) OR filter_has_var(INPUT_POST , "last_name") OR filter_has_var(INPUT_POST , "adresse") ;
-    //  echo "hi" ;
-
-    if(isset($_POST["submit"])  OR !empty($_POST["email"]) OR !empty($_POST["password2"])){
+    //   }
+    if(isset($_POST["submit"]) AND !empty($_POST["email"]) AND ($_POST["password"] === $_POST["password2"])== true) {
         $first_name = $_POST["first_name"] ;
-         $first_name = filter_var($first_name ,FILTER_SANITIZE_STRING) ;
         $last_name = $_POST["last_name"] ;
-            $lastname = filter_var($last_name , FILTER_SANITIZE_STRING) ;
+        $adresse = $_POST["adresse"] ;
         $email = $_POST["email"] ;
-            $email = filter_var($email , FILTER_SANITIZE_EMAIL) ;
+        $password = md5($_POST["password2"]) ;
         $phone = $_POST["phone"] ;
-            $phone = filter_var($phone , FILTER_SANITIZE_NUMBER_INT) ;
-          
+        // success msg
+        $newClient = "Your account has been successfully created " ;
+        $created = "alert-success" ;
+
         echo "<hr>" ;
-            echo "email ".$email ;
-        echo "<hr>" ;
-            echo "lastname ".$last_name ;
-        echo "<hr>" ;
-            echo "firstname ".$first_name ;
-        echo "<hr>" ;
-        
-        
-        // $last_name = filter_var($last_name ,FILTER_SANITIZE_STRING) ;
-        // $adresse = $_POST["adresse"] ;
-        // $phone = $_POST["phone"] ;
-        // // $phone = fliter_var($phone ,FILTER_VALIDATE_INT) ;
-        // $email = $_POST["email"] ;
-        // $email = filter_var($email, FILTER_SANITIZE_EMAIL) ;
-        // $password = $_POST["password2"] ;
-        echo "<hr>" ;
-        // echo "$last_name.'<hr>'. $first_name.'<hr>'. $adresse.'<hr>' . $phone. '<hr> '  . $email. '<hr>' .  $password" ;
-        echo "<hr>" ;
-    } 
+
+        $myQuery = "INSERT INTO client(first_name, last_name, adresse, phone, email, password)
+                    VALUES('$first_name' , '$last_name', '$adresse', '$phone','$email', '$password') " ;
+
+        if(mysqli_query($connection, $myQuery)){
+            // echo "data has benn added successfully" ; HERE I need to get rid of it
+        }else{
+            echo $myQuery."data sent is not cool at all".mysqli_error() ;
+        }
+    }elseif(empty($_POST["email"]) AND empty($_POST["password"])) {
+        $error = "please fill all the fields" ;
+        $errorC = "alert-danger" ;
+   }
 ?>
-
-
 <div id="form1" class="container  p-3 m-6">
-  <form class="row g-3 needs-validation" novalidate method="POST" action="<?php echo $_SERVER["PHP_SELF"] ; ?>">
+    <?php if($error != "") {       ?>
+        <div class="alert <?php echo $errorC ?>"> <?php  echo $error ?> </div>
+        <?php  } elseif($newClient !=""){    ;  ?>
+        <div class="alert <?php echo $created ; ?>"> 
+        <?php echo $newClient  ?>
+        </div>
+    <?php }; ?> 
+  <form class="row g-3 needs-validation" novalidate method="POST" action="<?php echo $_SERVER["PHP_SELF"] ; ?>">    
     <div class="col-lg-6 position-relative">
         <label for="validationTooltip01" class="form-label">First name</label>
         <input type="text" class="form-control" id="validationTooltip01" value=""  name="first_name" >
