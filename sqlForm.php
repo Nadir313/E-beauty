@@ -7,26 +7,16 @@
          }else{
              echo "connection is done successfully" ;
          }
-         echo "<hr>" ;
-         echo $_SERVER["PHP_SELF"] ;
-         echo "<hr>" ;
-         echo "<hr>" ;
-        //  $myQuery = "SELECT * FROM test" ;
-        //  $outcome = mysqli_query($connection, $myQuery) ;
-        //  $numRow = mysqli_num_rows($outcome) ;
-        //  echo $numRow ;
-        //  echo "<hr>" ;
-        //  echo "<pre>" ;
-        //     var_dump($outcome) ;
-        //  echo "</pre>" ;
-        //  echo "<hr>" ;
-        //  if($numRow >0){
-        //      while($data = mysqli_fetch_assoc($outcome)){
-        //          echo "<pre>" ;
-        //             var_dump($data) ;
-        //         echo "</pre>" ;
-        //      } 
-        //  }
+         $myQuery = "SELECT * FROM product" ;
+         $outcome = mysqli_query($connection, $myQuery) ;
+         $numRow = mysqli_num_rows($outcome) ;
+         if($numRow >0){
+             while($data = mysqli_fetch_assoc($outcome)){
+                 echo "<pre>" ;
+                    var_dump($data) ;
+                echo "</pre>" ;
+             } 
+         }
 
 
         /// this abmomne /
@@ -50,10 +40,7 @@
         
         //     }
         // }
-
-
         
-
             // if(isset($_POST["submit"])){
             //     $myquery = "SELECT * FROM Product "  ;
             //     $res = mysqli_connect($connection , $myquery) ;

@@ -1,6 +1,10 @@
 <?php include "navbar.php"  ;
       include "DBCon.php"  ;
     // echo $_SERVER["PHP_SELF"] ;
+    echo "<hr>" ;
+        echo  $_SERVER['REQUEST_METHOD'] ;
+    echo "<hr>" ;
+
     global $error ,  $errorC,  $newClient,  $created , $passworderror, $passwordmsg ;
     if(isset($_POST["submit"])  AND !empty($_POST["email"]) AND ($_POST["password"] === $_POST["password2"]) == true) {
         $first_name = $_POST["first_name"] ;
@@ -15,9 +19,8 @@
         $newClient = "Your account has been successfully created " ;
         $created = "alert-success" ;
         echo "<hr>" ;
-        // echo "$first_name and  $last_name and $adress" ;
-        // die ;
-
+        $_SERVER['REQUEST_METHOD'] ;
+        echo "<hr>" ;
         $myQuery = "INSERT INTO client(first_name, last_name, adresse, phone, email, password)
                     VALUES('$first_name' , '$last_name', '$adress', '$phone','$email', '$password') " ;
 

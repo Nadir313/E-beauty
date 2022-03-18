@@ -12,13 +12,13 @@
             $outcome = mysqli_query($connection, $myQuery) ;
             $numRow = mysqli_num_rows($outcome) ;
             $finaldata = mysqli_fetch_assoc($outcome) ;
-            echo "<pre>" ;
-                var_dump($finaldata) ;
-            echo "</pre>" ;
-            if($finaldata["email"] === $email AND $finaldata["password"] === $password){
+            if($finaldata != null AND $finaldata["email"] === $email AND $finaldata["password"] === $password){
                 echo "you're cool" ;
+                echo "<pre>" ;
+                    var_dump($finaldata) ;
+                echo "</pre>" ;
             }else{
-                 $incorrect = "email or password are incorrect" ;
+                 $incorrect = "email or password is incorrect" ;
                  $incorrectError = "alert-danger" ;
             }
        }elseif(empty($_POST["email"]) AND empty($_POST["password"])) {
@@ -27,7 +27,6 @@
        }
    }
 ?>
-
 <form  id="sign_form" action="<?php echo $_SERVER["PHP_SELF"] ;  ?>" method="post"> 
         <img  src="images/user.png" alt="user_picture">
         <h3>Sign up</h3>

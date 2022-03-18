@@ -30,6 +30,9 @@
         <li class="nav-item">
           <a class="nav-link " href="sqlForm.php">Add product</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " href="delete.php">Delete</a>
+        </li>
       </ul>
     </div>
   </div>

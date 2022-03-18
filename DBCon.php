@@ -6,4 +6,3 @@
     $DBname = "e_beauty" ;
 
     $connection = mysqli_connect($Server, $username, $DBpass, $DBname) ;
-?>
